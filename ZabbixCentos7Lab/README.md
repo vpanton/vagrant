@@ -9,39 +9,39 @@ http://repo.zabbix.com/zabbix/2.4/rhel/7/x86_64/
 Firewall
 --------
 
-firewall-cmd --permanent --add-port=10050/tcp
-firewall-cmd --permanent --add-port=10051/tcp
-systemctl restart firewalld
+    firewall-cmd --permanent --add-port=10050/tcp  
+    firewall-cmd --permanent --add-port=10051/tcp  
+    systemctl restart firewalld
 
 SELinux
 -------
 
-setsebool -P httpd_can_connect_zabbix=1
+    setsebool -P httpd_can_connect_zabbix=1
 
 Settings files
 --------------
 
-/etc/zabbix/zabbix_agentd.conf
-/etc/zabbix/zabbix_server.conf
-/etc/httpd/conf.d/zabbix.conf
+    /etc/zabbix/zabbix_agentd.conf  
+    /etc/zabbix/zabbix_server.conf  
+    /etc/httpd/conf.d/zabbix.conf  
 
 Run Vagrant
 -----------
 
-vagrant destroy -f && vg_start=`date` && vagrant up && vg_stop=`date` && echo $vg_start && echo $vg_stop
-or
-vagrant destroy -f
-vagrant up
+    vagrant destroy -f && vg_start=`date` && vagrant up && vg_stop=`date` && echo $vg_start && echo $vg_stop  
+    or  
+    vagrant destroy -f  
+    vagrant up
 
 Documentation
 -------------
 
-https://www.zabbix.com/documentation/2.4/
-http://blog.zabbix.com/
-https://www.zabbix.com/forum/
-https://share.zabbix.com/
-https://github.com/zabbix/zabbix-community-repos
-http://monitoringartist.github.io/zabbix-searcher/
+https://www.zabbix.com/documentation/2.4/  
+http://blog.zabbix.com/  
+https://www.zabbix.com/forum/  
+https://share.zabbix.com/  
+https://github.com/zabbix/zabbix-community-repos  
+http://monitoringartist.github.io/zabbix-searcher/  
 
 ### Author
 	Anton Prykhodko
