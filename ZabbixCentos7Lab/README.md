@@ -1,10 +1,20 @@
 Vagrant Zabbix Centos 7 Lab
 ===========================
+Run Vagrant
+-----------
 
-Repository
-----------
+    vagrant destroy -f && vg_start=`date` && vagrant up && vg_stop=`date` && echo $vg_start && echo $vg_stop  
+    or  
+    vagrant destroy -f  
+    vagrant up
 
-http://repo.zabbix.com/zabbix/2.4/rhel/7/x86_64/
+Settings files
+--------------
+
+    /etc/zabbix/zabbix_agentd.conf  
+    /etc/zabbix/zabbix_server.conf  
+    /etc/httpd/conf.d/zabbix.conf  
+
 
 Firewall
 --------
@@ -18,30 +28,17 @@ SELinux
 
     setsebool -P httpd_can_connect_zabbix=1
 
-Settings files
---------------
-
-    /etc/zabbix/zabbix_agentd.conf  
-    /etc/zabbix/zabbix_server.conf  
-    /etc/httpd/conf.d/zabbix.conf  
-
-Run Vagrant
------------
-
-    vagrant destroy -f && vg_start=`date` && vagrant up && vg_stop=`date` && echo $vg_start && echo $vg_stop  
-    or  
-    vagrant destroy -f  
-    vagrant up
-
-Documentation
+Links
 -------------
 
+http://repo.zabbix.com/zabbix/2.4/rhel/7/x86_64/  
 https://www.zabbix.com/documentation/2.4/  
 http://blog.zabbix.com/  
 https://www.zabbix.com/forum/  
 https://share.zabbix.com/  
 https://github.com/zabbix/zabbix-community-repos  
-http://monitoringartist.github.io/zabbix-searcher/  
+http://monitoringartist.github.io/zabbix-searcher/
+
 
 ### Author
 	Anton Prykhodko
