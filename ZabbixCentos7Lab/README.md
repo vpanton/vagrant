@@ -38,6 +38,8 @@ https://www.zabbix.com/forum/
 https://share.zabbix.com/  
 https://github.com/zabbix/zabbix-community-repos  
 http://monitoringartist.github.io/zabbix-searcher/
+https://ru.wikipedia.org/wiki/Сравнение_систем_мониторинга_сети
+https://www.netways.de/fileadmin/images/Events_Trainings/Events/OSDC/2009/Slides_2009/Alexei_Vladishev_Open_Source_Monitoring_with_Zabbix.pdf
 
 
 ### Author
