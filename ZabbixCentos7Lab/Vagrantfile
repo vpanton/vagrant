@@ -4,21 +4,27 @@ config.vm.provision "shell", inline: "echo Hello && date"
   config.vm.define "zabbix-server" do |zserver|
     zserver.vm.box = "centos/7"
     zserver.vm.hostname = "zserver"
-    zserver.vm.network :private_network, ip: "192.168.1.10"
+    zserver.vm.network :private_network, ip: "192.168.40.10"
+    zserver.vm.network :forwarded_port, guest: 22, host: 20221, id: 'ssh'
     zserver.vm.network :forwarded_port, guest: 80, host: 8080
     zserver.vm.provision :shell, path: "bootstrap-server.sh"
+    zserver.vm.boot_timeout = 300
   end
   config.vm.define "client-a" do |zclienta|
     zclienta.vm.box = "centos/7"
     zclienta.vm.hostname = "client-a"
-    zclienta.vm.network :private_network, ip: "192.168.1.5"
+    zclienta.vm.network :private_network, ip: "192.168.40.5"
+    zclienta.vm.network :forwarded_port, guest: 22, host: 20222, id: 'ssh'
     zclienta.vm.provision :shell, path: "bootstrap-agent.sh"
+    zclienta.vm.boot_timeout = 300
   end
   config.vm.define "client-b" do |zclientb|
     zclientb.vm.box = "centos/7"
     zclientb.vm.hostname = "client-b"
-    zclientb.vm.network :private_network, ip: "192.168.1.6"
+    zclientb.vm.network :private_network, ip: "192.168.40.6"
+    zclientb.vm.network :forwarded_port, guest: 22, host: 20223, id: 'ssh'
     zclientb.vm.provision :shell, path: "bootstrap-agent.sh"
+    zclientb.vm.boot_timeout = 300
   end
 
 end
