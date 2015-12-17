@@ -42,5 +42,13 @@ https://ru.wikipedia.org/wiki/Сравнение_систем_мониторин
 https://www.netways.de/fileadmin/images/Events_Trainings/Events/OSDC/2009/Slides_2009/Alexei_Vladishev_Open_Source_Monitoring_with_Zabbix.pdf  
 https://sdcast.ksdaemon.ru/2015/08/sdcast-29/  
 
+Versions
+--------
+    $ vagrant --version
+    Vagrant 1.7.4
+    $ "/cygdrive/c/Program Files/Oracle/VirtualBox/VBoxManage.exe" --version
+    4.3.12r93733
+
+
 ### Author
 	Anton Prykhodko
