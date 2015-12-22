@@ -1,0 +1,18 @@
+---
+- name: Test task
+  debug: msg="Names {{ item }}"
+  with_items:
+   - Alex
+   - Miha
+   - Oleg
+   - Igor
+
+- name: Test task2
+  debug: msg="Names {{ item.name }} who is {{ item.groups }}"
+  with_items:
+   - { name: Alex, groups: wheel }
+   - { name: Oleg, groups: root }
+   - { name: Igor, groups: student }
+  tags:
+   - conf
+

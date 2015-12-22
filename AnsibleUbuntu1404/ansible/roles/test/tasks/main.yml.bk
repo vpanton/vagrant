@@ -1,0 +1,23 @@
+---
+- name: Test task
+  shell: /bin/false
+  register: result
+  ignore_error: True
+
+#
+- debug: var=result
+#
+- debug: msg="RC works"
+  when: result.rc != 0
+
+- debug: msg="it failed"
+  when: result|failed
+
+- debug: msg="it changed"
+  when: result|changed
+
+- debug: msg="it succeeded"
+  when: result|succeed
+
+- debug: msg="it skipped"
+  when: result|skipped

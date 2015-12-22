@@ -1,0 +1,5 @@
+---
+- hosts: local
+  user: vagrant
+  roles:
+  - { role: test, tags: [ 'conf' ] }

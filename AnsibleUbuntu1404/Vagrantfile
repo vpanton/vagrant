@@ -1,0 +1,23 @@
+Vagrant.configure("2") do |config|
+config.vm.provision "shell", inline: "echo Hello && date"
+
+  config.vm.define "ansible-server" do |server|
+    server.vm.box = "ubuntu/trusty64"
+    server.vm.hostname = "ans-server"
+    server.vm.network :private_network, ip: "192.168.43.10"
+    server.vm.network :forwarded_port, guest: 22, host: 20310, id: 'ssh'
+  end
+  config.vm.define "client-a" do |clienta|
+    clienta.vm.box = "ubuntu/trusty64"
+    clienta.vm.hostname = "ans-host-a"
+    clienta.vm.network :private_network, ip: "192.168.43.5"
+    clienta.vm.network :forwarded_port, guest: 22, host: 20305, id: 'ssh'
+  end
+  config.vm.define "client-b" do |clientb|
+    clientb.vm.box = "ubuntu/trusty64"
+    clientb.vm.hostname = "ans-host-b"
+    clientb.vm.network :private_network, ip: "192.168.43.6"
+    clientb.vm.network :forwarded_port, guest: 22, host: 20306, id: 'ssh' 
+  end
+
+end
